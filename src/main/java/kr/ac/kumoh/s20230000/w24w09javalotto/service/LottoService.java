@@ -2,6 +2,7 @@ package kr.ac.kumoh.s20230000.w24w09javalotto.service;
 
 import kr.ac.kumoh.s20230000.w24w09javalotto.model.LottoNumber;
 import kr.ac.kumoh.s20230000.w24w09javalotto.repository.LottoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -9,13 +10,10 @@ import java.util.Random;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class LottoService {
     private final LottoRepository lottoRepository;
     private final Random random = new Random();
-
-    public LottoService(LottoRepository lottoRepository) {
-        this.lottoRepository = lottoRepository;
-    }
 
     public LottoNumber getLuckyNumbers() {
         Set<Integer> numbers = new HashSet<>();
